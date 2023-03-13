@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>
+        My love V!
+    </title>
+</head>
+<body style="background: black;">
+    <p>
+        <h1 style="color: white;">Web Audio Context API Sample for Wolf</h1>
+    </p>
+    <div>
+        <button>
+            Play/pause
+        </button>
+    </div>
+    <div>
+        <canvas>
+    </div>
+    <script src="./shared.js"></script>
+    <script src="./player.js"></script>
+    <script>
+        var sample = new VisualizerSample();
+            document.querySelector('button').addEventListener('click', function() {
+            sample.togglePlayback()
+        });
+    </script>
+</body>
+</html>
