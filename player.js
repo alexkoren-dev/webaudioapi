@@ -13,7 +13,7 @@ function VisualizerSample() {
   this.analyser.maxDecibels = 0;
 
   loadSounds(this, {
-    buffer: 'v.mp3'
+    buffer: 'https://api.taalhammer.com/flashcard/audio?id=600000&lang=en',
   }, onLoaded);
 
   this.freqs = new Uint8Array(this.analyser.frequencyBinCount);
@@ -39,6 +39,7 @@ VisualizerSample.prototype.togglePlayback = function() {
     console.log('paused at', this.startOffset);
     // Save the position of the play head.
   } else {
+    console.log(this.buffer)
     this.startTime = context.currentTime;
     console.log('started at', this.startOffset);
     this.source = context.createBufferSource();
