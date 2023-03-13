@@ -5,6 +5,14 @@ var HEIGHT = 360;
 var SMOOTHING = 0.8;
 var FFT_SIZE = 2048;
 
+var URLS = {
+    1: 't.mp3',
+    2: 'v.mp3',
+    3: 'land.mp3',
+    // 1: 'https://webaudioapi.com/samples/rhythm/kick.wav',
+    // 2: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3',
+}
+
 function VisualizerSample() {
   this.analyser = context.createAnalyser();
 
@@ -12,9 +20,7 @@ function VisualizerSample() {
   this.analyser.minDecibels = -140;
   this.analyser.maxDecibels = 0;
 
-  loadSounds(this, {
-    buffer: 'https://api.taalhammer.com/flashcard/audio?id=600000&lang=en',
-  }, onLoaded);
+  loadSounds(this, URLS, onLoaded);
 
   this.freqs = new Uint8Array(this.analyser.frequencyBinCount);
   this.times = new Uint8Array(this.analyser.frequencyBinCount);
@@ -28,7 +34,9 @@ function VisualizerSample() {
   this.isPlaying = false;
   this.startTime = 0;
   this.startOffset = 0;
+  this.soundNo = 1
 }
+
 
 // Toggle playback
 VisualizerSample.prototype.togglePlayback = function() {
@@ -39,20 +47,35 @@ VisualizerSample.prototype.togglePlayback = function() {
     console.log('paused at', this.startOffset);
     // Save the position of the play head.
   } else {
-    console.log(this.buffer)
+    // console.log(this.buffer)
+    this.playSound()
+  }
+  this.isPlaying = !this.isPlaying;
+}
+
+VisualizerSample.prototype.playSound = function(){
     this.startTime = context.currentTime;
     console.log('started at', this.startOffset);
     this.source = context.createBufferSource();
     // Connect graph
     this.source.connect(this.analyser);
-    this.source.buffer = this.buffer;
-    this.source.loop = true;
+    this.source.buffer = this[this.soundNo];
+    this.source.loop = false;
     // Start playback, but make sure we stay in bound of the buffer.
-    this.source[this.source.start ? 'start' : 'noteOn'](0, this.startOffset % this.buffer.duration);
+    this.source[this.source.start ? 'start' : 'noteOn'](0, this.startOffset % this[this.soundNo].duration);
     // Start visualizer.
     requestAnimFrame(this.draw.bind(this));
-  }
-  this.isPlaying = !this.isPlaying;
+
+    this.source.onended = () => {
+        if(context.currentTime >= this[this.soundNo].duration) {
+            this.soundNo++;
+
+            if(this[this.soundNo])
+                setTimeout(() => {
+                    this.playSound()
+                }, 4000)
+        }
+    }
 }
 
 

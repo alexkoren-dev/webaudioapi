@@ -32,12 +32,12 @@ window.requestAnimFrame = (function () {
 })();
 
 
-function playSound(buffer, time) {
-    var source = context.createBufferSource();
-    source.buffer = buffer;
-    source.connect(context.destination);
-    source[source.start ? 'start' : 'noteOn'](time);
-}
+// function playSound(buffer, time) {
+//     var source = context.createBufferSource();
+//     source.buffer = buffer;
+//     source.connect(context.destination);
+//     source[source.start ? 'start' : 'noteOn'](time);
+// }
 
 function loadSounds(obj, soundMap, callback) {
     // Array-ify
