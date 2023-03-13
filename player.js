@@ -6,11 +6,6 @@ var SMOOTHING = 0.8;
 var FFT_SIZE = 2048;
 
 var URLS = {
-    // 1: 't.mp3',
-    // 2: 'v.mp3',
-    // 3: 'land.mp3',
-    // 1: 'https://webaudioapi.com/samples/rhythm/kick.wav',
-    // 2: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3',
     1: 'audios/1.mp3',
     2: 'audios/2.mp3',
     3: 'audios/3.mp3',
