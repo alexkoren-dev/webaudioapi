@@ -38,7 +38,7 @@
     <div>
         <canvas>
     </div>
-    <audio preload="auto" controls>
+    <audio preload="auto" controls hidden>
         <source src="https://alex-audio-api.netlify.app/audios/1.mp3" type="audio/mp3">
     </audio>
     <div style="color: white; text-align: center;" id="loading">Loading sounds...</div>
@@ -48,9 +48,9 @@
     <script>
         var sample = new VisualizerSample();
         document.querySelector('button').addEventListener('click', function() {
+            document.querySelector('audio').play();
             sample.togglePlayback();
             unmuteIosAudio();
-            document.querySelector('audio').play();
         });
     </script>
 </body>

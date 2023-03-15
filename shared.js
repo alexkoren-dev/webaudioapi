@@ -2,7 +2,6 @@
 context = new (window.AudioContext || window.webkitAudioContext)();
 
 if (context.state === 'suspended') {
-    document.querySelector('audio').play();
     const overlay = document.getElementById('overlay');
     overlay.className = 'visible';
 
