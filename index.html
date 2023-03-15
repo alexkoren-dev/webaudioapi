@@ -39,12 +39,14 @@
         <canvas>
     </div>
     <div style="color: white; text-align: center;" id="loading">Loading sounds...</div>
+    <script src="./unmute.js"></script>
     <script src="./shared.js"></script>
     <script src="./player.js"></script>
     <script>
         var sample = new VisualizerSample();
         document.querySelector('button').addEventListener('click', function() {
-            sample.togglePlayback()
+            sample.togglePlayback();
+            unmuteIosAudio();
         });
     </script>
 </body>
