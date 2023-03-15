@@ -49,6 +49,8 @@
         var sample = new VisualizerSample();
         document.querySelector('button').addEventListener('click', function() {
             sample.togglePlayback();
+            unmuteIosAudio();
+            document.querySelector('audio').play();
         });
     </script>
 </body>
