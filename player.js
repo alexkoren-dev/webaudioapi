@@ -6,22 +6,22 @@ var SMOOTHING = 0.8;
 var FFT_SIZE = 2048;
 
 var URLS = {
-    1: 'audios/1.mp3',
-    2: 'audios/2.mp3',
-    3: 'audios/3.mp3',
-    4: 'audios/4.mp3',
-    5: 'audios/5.mp3',
-    6: 'audios/6.mp3',
-    7: 'audios/7.mp3',
-    8: 'audios/8.mp3',
-    9: 'audios/9.mp3',
-    10: 'audios/10.mp3',
-    11: 'audios/11.mp3',
-    12: 'audios/12.mp3',
-    13: 'audios/13.mp3',
-    14: 'audios/14.mp3',
-    15: 'audios/15.mp3',
-    16: 'audios/16.mp3',
+  1: 'audios/1.mp3',
+  2: 'audios/2.mp3',
+  3: 'audios/3.mp3',
+  4: 'audios/4.mp3',
+  5: 'audios/5.mp3',
+  6: 'audios/6.mp3',
+  7: 'audios/7.mp3',
+  8: 'audios/8.mp3',
+  9: 'audios/9.mp3',
+  10: 'audios/10.mp3',
+  11: 'audios/11.mp3',
+  12: 'audios/12.mp3',
+  13: 'audios/13.mp3',
+  14: 'audios/14.mp3',
+  15: 'audios/15.mp3',
+  16: 'audios/16.mp3',
 }
 
 function VisualizerSample() {

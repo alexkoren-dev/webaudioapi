@@ -31,8 +31,11 @@
         <h1 style="color: white;">Web Audio Context API Test</h1>
     </p>
     <div>
-        <button>
-            Play/pause
+        <button id="web_audio">
+            Play (Web audio context API)
+        </button>
+        <button id="html_audio">
+            Play (HTML5 audio)
         </button>
     </div>
     <div>
@@ -46,13 +49,31 @@
     <script src="./player.js"></script>
     <script>
         var sample = new VisualizerSample();
-        document.querySelector('button').addEventListener('click', function() {
-            // document.querySelector('audio').play();
-            // sample.togglePlayback();
-
-            const audio = new Audio('https://alex-audio-api.netlify.app/land.mp3');
-            audio.play();
+        
+        document.querySelector('button#web_audio').addEventListener('click', function() {
+            document.querySelector('audio').play();
+            sample.togglePlayback();
         });
+
+        document.querySelector('button#html_audio').addEventListener('click', function() {
+            let audio = new Audio();
+            let audioNo = 1;
+
+            var sound_url = 'https://alex-audio-api.netlify.app/audios/'+audioNo+'.mp3';
+            audio.src = sound_url;
+            audio.play();
+
+            audio.addEventListener("ended", function(){
+                if(audioNo < 17) {
+                    audioNo++
+
+                    setTimeout(() => {
+                        audio.src = 'https://alex-audio-api.netlify.app/audios/'+audioNo+'.mp3';
+                        audio.play();
+                    }, 4000)
+                }
+            });
+        })
     </script>
 </body>
 </html>
