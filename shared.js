@@ -12,6 +12,14 @@ if (context.state === 'suspended') {
     }, { once: true });
 }
 
+document.addEventListener('touchstart', () => {
+    context.resume();
+});
+
+document.addEventListener('pagehide', function(){
+    context.resume();
+}, false);
+
 if (!context.createGain)
     context.createGain = context.createGainNode;
 if (!context.createDelay)
