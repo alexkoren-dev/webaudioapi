@@ -47,8 +47,11 @@
     <script>
         var sample = new VisualizerSample();
         document.querySelector('button').addEventListener('click', function() {
-            document.querySelector('audio').play();
-            sample.togglePlayback();
+            // document.querySelector('audio').play();
+            // sample.togglePlayback();
+
+            const audio = new Audio('https://alex-audio-api.netlify.app/land.mp3');
+            audio.play();
         });
     </script>
 </body>
