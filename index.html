@@ -41,19 +41,19 @@
     <div>
         <canvas>
     </div>
-    <audio preload="auto" controls hidden>
+    <!-- <audio preload="auto" controls hidden>
         <source src="https://alex-audio-api.netlify.app/audios/slience.mp3" type="audio/mp3">
-    </audio>
-    <div style="color: white; text-align: center;" id="loading">Loading sounds...</div>
-    <script src="./shared.js"></script>
-    <script src="./player.js"></script>
+    </audio> -->
+    <!-- <div style="color: white; text-align: center;" id="loading">Loading sounds...</div> -->
+    <!-- <script src="./shared.js"></script> -->
+    <!-- <script src="./player.js"></script> -->
     <script>
-        var sample = new VisualizerSample();
-        
-        document.querySelector('button#web_audio').addEventListener('click', function() {
-            document.querySelector('audio').play();
-            sample.togglePlayback();
-        });
+        // var sample = new VisualizerSample();
+
+        // document.querySelector('button#web_audio').addEventListener('click', function() {
+        //     document.querySelector('audio').play();
+        //     sample.togglePlayback();
+        // });
 
         document.querySelector('button#html_audio').addEventListener('click', function() {
             let audio = new Audio();
